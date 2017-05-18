@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!--page_container-->
+    <div class="page_container">
+    	<div class="breadcrumb">
+        	<div class="wrap">
+            	<div class="container">
+                    <a href="{% url 'index' %}">Početna</a><span>/</span>Kontakt
+                </div>
+            </div>
+        </div>
+    	<div class="wrap">
+        	<div class="container">
+                <section>
+                	<div class="row">
+                    	<div class="span4">
+                        	<h2 class="title"><span>Kontakt Informacije</span></h2>
+                            <div id="map"><iframe width="100%" height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1424729.9155484105!2d17.21672336378136!3d44.120202261754315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sbs!2sba!4v1494352466731"></iframe></div>
+								<p>Adresa<br/>Adresa</p>
+								<p>Telefon: 062-062-062<br/>E-mail: <a href="mailto:#">info@yoursitename.com</a><br/>Web: <a href="#">http://yoursitename.com</a></p>                           
+                        </div>
+                    	<div class="span8">
+                        	<h2 class="title"><span>Kontaktirajte Nas</span></h2>
+                            <div class="contact_form">  
+                            	<div id="note"></div>
+                                <div id="fields">
+                                    <form id="ajax-contact-form" action="">
+                                        <input class="span7" type="text" name="name" value="" placeholder="Ime (Obavezno)" />
+                                        <input class="span7" type="text" name="email" value="" placeholder="E-mail (obavezno)" />
+                                        <input class="span7" type="text" name="subject" value="" placeholder="Naslov" />
+                                        <textarea name="message" id="message" class="span8" placeholder="Tekst poruke"></textarea>
+                                        <div class="clear"></div>
+                                        <input type="reset" class="btn dark_btn" value="Poništi" />
+                                        <input type="submit" class="btn send_btn" value="Pošalji" />
+                                        <div class="clear"></div>
+                                    </form>
+                                </div>
+                            </div>                   
+                        </div>                	
+                	</div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--//page_container-->
+    
+
+     
+    <script type="text/javascript">
+		$(document).ready(function(){	
+			$("#ajax-contact-form").submit(function() {
+				var str = $(this).serialize();		
+				$.ajax({
+					type: "POST",
+					url: "contact_form/contact_process.php",
+					data: str,
+					success: function(msg) {
+						// Message Sent - Show the 'Thank You' message and hide the form
+						if(msg == 'OK') {
+							result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
+							$("#fields").hide();
+						} else {
+							result = msg;
+						}
+						$('#note').html(result);
+					}
+				});
+				return false;
+			});															
+		});		
+	</script>
+
+{% endblock %}

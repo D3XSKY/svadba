@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+        
+    <!--page_container-->
+    <div class="page_container">
+    	<div class="breadcrumb">
+        	<div class="wrap">
+                <div class="container">
+                    <a href="index.html">Početna</a><span>/</span>Proizvodi
+                </div>
+            </div> 
+        </div>
+    	<!--MAIN CONTENT AREA-->
+        <div class="wrap">
+            <div class="container inner_content">
+                <div id="options">                                           
+                    <ul id="filters" class="option-set" data-option-key="filter">
+                        <li><a href="#filter" data-option-value="*" class="btn dark_btn selected">Sve</a></li>
+                        <li><a href="#filter" data-option-value=".category01" class="btn dark_btn">Saloni</a></li>                                            
+                        <li><a href="#filter" data-option-value=".category02" class="btn dark_btn">Bendovi</a></li>
+                        <li><a href="#filter" data-option-value=".category03" class="btn dark_btn">Fotografi</a></li>
+                        <li><a href="#filter" data-option-value=".category04" class="btn dark_btn">Catering</a></li>
+                        <li><a href="#filter" data-option-value=".category07" class="btn dark_btn">Vjencanice i odijela</a></li>
+                        <li><a href="#filter" data-option-value=".category08" class="btn dark_btn">Medeni mjesec</a></li>
+                        <li><a href="#filter" data-option-value=".category09" class="btn dark_btn">Usluge</a></li> 
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="row">
+                    <!-- portfolio_block -->
+                    <div class="projects" id="proizvodi">                                  
+                        
+                        
+                    </div>   
+                    <!-- //portfolio_block -->   
+                </div>
+            </div>
+        </div>
+    <!--//MAIN CONTENT AREA-->
+    	
+    </div>
+    <!--//page_container-->
+    
+    <!--footer-->
+    
+        <div class="footer_bottom">
+            <div class="wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="span5">
+                            <div class="foot_logo"><a href="index.html"><img src="img/foot_logo.png" alt="" /></a></div>    
+                            <div class="copyright">&copy; 2017 Svadba. All Rights Reserved.</div>                        
+                        </div>
+                        <div class="span7">
+                            <div class="foot_right_block">
+                                <div class="fright">
+                                    <form action="#" method="post">
+                                        <input class="inp_search" name="name" type="text" value="Search the Site" onfocus="if (this.value == 'Search the Site') this.value = '';" onblur="if (this.value == '') this.value = 'Search the Site';" />                                        
+                                    </form>
+                                </div>
+                                <div class="follow_us">
+                                    <ul>
+                                        <li><a rel="tooltip" href="#" title="Facebook" class="facebook">Facebook</a></li>
+                                        <li><a rel="tooltip" href="#" title="Twitter" class="twitter">Twitter</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                            
+                                <div class="clear"></div>
+                                <div class="foot_menu">
+                                    <ul>
+                                        <li><a href="index.html" class="current">Početna</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contacts.html">Kontakt</a></li>
+                                    </ul>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//footer-->    
+    <script src="{% static 'js/getproductlist.js' %}"></script>
+    <script src="{% static 'js/jquery.isotope.min.js' %}" type="text/javascript"></script>
+	<script type="text/javascript" src="{% static 'js/sorting.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.preloader.js' %}"></script>
+
+    <script type="text/javascript">
+		$(document).ready(function(){							
+			//prettyPhoto
+			$("a[rel^='prettyPhoto']").prettyPhoto();
+			
+			//Image hover
+			$(".hover_img").live('mouseover',function(){
+					var info=$(this).find("img");
+					info.stop().animate({opacity:0.6},500);
+					$(".preloader").css({'background':'none'});
+				}
+			);
+			$(".hover_img").live('mouseout',function(){
+					var info=$(this).find("img");
+					info.stop().animate({opacity:1},500);
+					$(".preloader").css({'background':'none'});
+				}
+			);	
+			// Preloader
+			$(".projects .element").preloader();	
+							
+		});
+	</script>
+
+{% endblock %}

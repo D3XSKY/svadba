@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Svadba</title>
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+<link href="css/docs.css" rel="stylesheet">
+
+
+<link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" id="camera-css"  href="{% static 'css/camera.css' %}" type="text/css" media="all">
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/theme.css' %}" rel="stylesheet">
+<link href="{% static 'js/google-code-prettify/prettify.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/skins/tango/skin.css' %}" />
+<link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{% static 'img/apple-touch-icon-57x57.png' %}" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/apple-touch-icon-144x144.png' %}" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="{% static 'img/apple-touch-icon-60x60.png' %}" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{% static 'img/apple-touch-icon-120x120.png' %}" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="{% static 'img/apple-touch-icon-76x76.png' %}" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{% static 'img/apple-touch-icon-152x152.png' %}" />
+<link rel="icon" type="image/png" href="{% static 'img/favicon-196x196.png' %}" sizes="196x196" />
+<link rel="icon" type="image/png" href="{% static 'img/favicon-96x96.png' %}" sizes="96x96" />
+<link rel="icon" type="image/png" href="{% static 'img/favicon-32x32.png' %}" sizes="32x32" />
+<link rel="icon" type="image/png" href="{% static 'img/favicon-16x16.png' %}" sizes="16x16" />
+<link rel="icon" type="image/png" href="{% static 'img/favicon-128.png' %}" sizes="128x128" />
+<meta name="application-name" content="&nbsp;"/>
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="{% static 'img/mstile-144x144.png' %}" />
+<meta name="msapplication-square70x70logo" content="{% static 'img/mstile-70x70.png' %}" />
+<meta name="msapplication-square150x150logo" content="{% static 'img/mstile-150x150.png' %}" />
+<meta name="msapplication-wide310x150logo" content="{% static 'img/mstile-310x150.png' %}" />
+<meta name="msapplication-square310x310logo" content="{% static 'img/mstile-310x310.png' %}" />
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->    
+</head>
+<body>
+	<!--header-->
+    <div class="header">
+    	<div class="wrap">
+        	<div class="navbar navbar_ clearfix">
+            	<div class="container">
+                    <div class="row">
+                        <div class="span4">
+                        	<div class="logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt="" /></a></div>                        
+                        </div>
+                        <div class="span8">
+                        	<div class="follow_us">
+                                <ul>
+                                    <li><a href="#" class="facebook">Facebook</a></li>
+                                    <li><a href="#" class="twitter">Twitter</a></li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                            <nav id="main_menu">
+                                <div class="menu_wrap">
+                                    <ul class="nav sf-menu">
+                                      <li class="current"><a href="{% url 'index' %}">Početna</a></li>
+                                      <li class="sub-menu"><a href="javascript:{}">Kategorije</a>
+                                          <ul>
+                                              <li><a href="{% url 'product' %}"><span>-</span>Svadbeni saloni</a></li>
+                                              <li><a href="{% url 'product' %}"><span>-</span>Bendovi</a></li>
+                                              <li><a href="{% url 'product' %}"><span>-</span>Fotografi</a></li>
+                                              <li><a href="{% url 'product' %}"><span>-</span>Catering</a></li>                       
+                                              <li><a href="{% url 'product' %}"><span>-</span>Vjenčanice i odjela</a></li>
+                                              <li><a href="{% url 'product' %}"><span>-</span>Medeni mjesec</a></li>
+                                              <li><a href="{% url 'product' %}"><span>-</span>Usluge</a></li>                                         
+                                          </ul>                                          
+                                      </li>
+									  <li><a href="blog.html">Blog</a></li>
+                                      <li><a href="{% url 'contact' %}">Kontakt</a></li>
+                                    </ul>
+                                </div>
+                             </nav>                            
+                        </div>
+                    </div>                
+                </div>
+             </div>
+        </div>    
+    </div>
+    <!--//header-->    
+     
+    
+    <!--//footer-->    
+    {% block content %}{% endblock %}
+    
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.mobile.customized.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/camera.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/superfish.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.jcarousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.tweet.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/myscript.js' %}"></script>
+    <script src="{% static 'js/google-code-prettify/prettify.js' %}"></script>
+    <script src="{% static 'js/application.js' %}"></script>   
+    <script type="text/javascript">
+		$(document).ready(function(){	
+			//Slider
+			$('#camera_wrap_1').camera();
+			
+			//Featured works & latest posts
+			$('#mycarousel, #mycarousel2, #newscarousel').jcarousel();													
+		});		
+	</script>
+</body>
+</html>
+
