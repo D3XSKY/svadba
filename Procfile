@@ -1,1 +1,1 @@
-web: gunicorn RESTSOFRA.wsgi --log-file -
+web: gunicorn SVADBAREST.wsgi --log-file -
